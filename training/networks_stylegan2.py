@@ -280,7 +280,7 @@ class SynthesisLayer(torch.nn.Module):
         kernel_size     = 3,            # Convolution kernel size.
         up              = 1,            # Integer upsampling factor.
         use_noise       = True,         # Enable noise input?
-        activation      = 'lrelu',      # Activation function: 'relu', 'lrelu', etc.
+        activation      = 'reafbsrelu',      # Activation function: 'relu', 'lrelu', etc.
         resample_filter = [1,3,3,1],    # Low-pass filter to apply when resampling activations.
         conv_clamp      = None,         # Clamp the output of convolution layers to +-X, None = disable clamping.
         channels_last   = False,        # Use channels_last format for the weights?

@@ -15,6 +15,8 @@ import dnnlib
 
 from .. import custom_ops
 from .. import misc
+from .reafbsrelu import reafbsrelu
+
 
 #----------------------------------------------------------------------------
 
@@ -28,6 +30,7 @@ activation_funcs = {
     'selu':     dnnlib.EasyDict(func=lambda x, **_:         torch.nn.functional.selu(x),                def_alpha=0,    def_gain=1,             cuda_idx=7, ref='y', has_2nd_grad=True),
     'softplus': dnnlib.EasyDict(func=lambda x, **_:         torch.nn.functional.softplus(x),            def_alpha=0,    def_gain=1,             cuda_idx=8, ref='y', has_2nd_grad=True),
     'swish':    dnnlib.EasyDict(func=lambda x, **_:         torch.sigmoid(x) * x,                       def_alpha=0,    def_gain=np.sqrt(2),    cuda_idx=9, ref='x', has_2nd_grad=True),
+    'reafbsrelu': dnnlib.EasyDict(func=lambda x, alpha=0, **_: reafbsrelu(x, alpha=alpha),              def_alpha=0.0,  def_gain=np.sqrt(2),    cuda_idx=10, ref='y', has_2nd_grad=True        ),
 }
 
 #----------------------------------------------------------------------------
