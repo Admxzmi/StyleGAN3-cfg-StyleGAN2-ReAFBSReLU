@@ -46,7 +46,8 @@ def _init():
             sources=['bias_act.cpp', 'bias_act.cu'],
             headers=['bias_act.h'],
             source_dir=os.path.dirname(__file__),
-            extra_cuda_cflags=['--use_fast_math', '--allow-unsupported-compiler'],
+            extra_cuda_cflags=['--use_fast_math', '--allow-unsupported-compiler', '-I/opt/conda/lib/python3.11/site-packages/nvidia/cuda_runtime/include', '-I/opt/conda/targets/x86_64-linux/include'],
+            extra_cflags=['-I/opt/conda/lib/python3.11/site-packages/nvidia/cuda_runtime/include', '-I/opt/conda/targets/x86_64-linux/include'],
         )
     return True
 
